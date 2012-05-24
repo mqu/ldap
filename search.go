@@ -71,6 +71,24 @@ func (e *Entry) GetAttributeValue( Attribute string ) string {
    return values[ 0 ]
 }
 
+func (e *Entry) GetAttributesList() (l []string) {
+
+	l = make([]string, len(e.Attributes))
+
+	for  i, attr := range e.Attributes {
+		l[i] = attr.Name
+	}
+	return l
+}
+
+func (e *Entry) Mail() (value string, error bool) {
+   values := e.GetAttributeValues("mail")
+   if len( values ) == 0 {
+      return "mail attribut not found", true
+   }
+   return values[0], false
+}
+
 type SearchRequest struct {
    BaseDN string
    Scope int
