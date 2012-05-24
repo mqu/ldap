@@ -1,7 +1,7 @@
 package ldap
 
 import (
-   "github.com/mmitton/asn1-ber"
+   "github.com/mqu/asn1-ber"
    "testing"
 )
 
